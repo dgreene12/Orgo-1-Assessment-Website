@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0eae2; /* Warm off-white background */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 60px; /* Offset for fixed header */
+}
+
+header {
+    background: #5a4740; /* Warm brown tone */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+header:hover {
+    background-color: #5a4740; /* Dark blue on hover */
+}
+
+#hero {
+    text-align: center;
+    padding: 220px 0;
+    position: relative;
+    color: white;
+    max-width: 100%;
+    display: block;
+    z-index: 0;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(240, 234, 226, 0.3),
+        rgba(240, 234, 226, 0.3)
+    ), url('https://i.imgur.com/yHLWAwT.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+#hero h2 {
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif; /* More stylish font for titles */
+    display: inline-block;
+    padding: 2px 4px;
+    z-index: 1;
+    animation: fadeIn 2s; /* Fade-in animation */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+nav ul:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+section {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #1E3A5F; /* Dark blue accent border */
+    transition: all 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+    color: #5a4740; /* Warm brown tone for headers */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #5a4740;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.collapsible-container {
+    margin: 20px 0;
+    border-radius: 5px; /* Rounded corners for the whole container */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    overflow: hidden; /* Ensures the border radius applies to children */
+}
+
+.collapsible {
+    background-color: #8a766c; /* Warm brown tone */
+    color: white;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Rounded corners for each button */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.collapsible:hover, .collapsible.active {
+    background-color: #5a4740; /* Darker shade on hover/active */
+}
+
+.collapsible:after {
+    content: '\002B'; /* Plus symbol */
+    color: white;
+    font-weight: bold;
+    float: right;
+    transition: transform 0.2s ease;
+}
+
+.collapsible.active:after {
+    content: "\2212"; /* Minus symbol */
+    transform: rotate(180deg); /* Rotate icon for active state */
+}
+
+.collapsible.active {
+    margin-bottom: 0; /* Remove margin when expanded */
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, background-color 0.3s ease;
+    background-color: #8a766c; /* Same color as collapsible for a seamless look */
+    color: white; /* Ensuring text is readable on the new background color */
+    margin-bottom: 0; /* No margin when collapsed */
+}
+
+.collapsible-content.show {
+    max-height: 2000px; /* Adjust as needed */
+    padding: 20px; /* Add padding when content is shown */
+    margin-bottom: 10px;
+}
+
+/* Ensuring the border radius is applied to the last child */
+.collapsible-container .collapsible:last-of-type,
+.collapsible-container .collapsible-content:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.content-flex {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    justify-content: flex-start; /* Aligns items to the start of the flex container */
+}
+
+.collapsible-image {
+    width: auto; /* Adjust width as needed, can be a fixed width */
+    max-width: 60%; /* Limit the width to half of the container */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.collapsible-text {
+    font-size: 1.25em; /* Larger text size */
+    color: #fff; /* Text color, adjust if needed */
+    text-align: left; /* Left align text */
+    flex-grow: 1; /* Allows the text to take up the remaining space */
+}
+
+.timeline-container {
+    position: relative;
+    width: 100%;
+    height: 60px; /* Increased height */
+}
+
+.timeline-line {
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Line thickness */
+    background-color: #8a766c; /* Line color */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-section {
+    position: absolute;
+    height: 50px; /* Increased height */
+    bottom: 10px; /* Adjusted for visibility */
+    cursor: pointer;
+    text-align: center;
+}
+
+.timeline-section p {
+    color: white;
+    font-size: 0.8em;
+    line-height: 30px; /* Adjusted to section height */
+}
+
+/* Different colors for each section */
+.week1 { background-color: #6b8e23; }
+.week2-7 { background-color: #4682b4; }
+.week8 { background-color: #ffa07a; }
+.week9-14 { background-color: #da70d6; }
+.week15 { background-color: #b0c4de; }
+
+.timeline-info {
+    background-color: #f0eae2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: none; /* Initially hidden */
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-box {
+    flex-basis: 30%; /* Adjust the width of each box */
+    background-color: #f0eae2; /* Box background color */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-box h3 {
+    margin-top: 0;
+    color: #5a4740; /* Adjust title color if needed */
+}
+
+.info-box p {
+    color: #000000
+}
+
+.objectives-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.objective-box {
+    flex-basis: 30%; /* Adjust the width of each box */
+    background-color: #eae0d5; /* Different background color */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #8a766c; /* Add border */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.objective-box h3 {
+    color: #5a4740; /* Title color */
+    margin-bottom: 10px;
+}
+
+.objective-box h4 {
+    color: #000000; /* Title color */
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.analysis-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.analysis-box {
+    flex-basis: 30%; /* Adjust the width of each box */
+    background-color: #5a4740; /* Different background color */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.analysis-box h3 {
+    color: #FFF; /* Title color */
+    margin-bottom: 10px;
+}
+
+.analysis-box p {
+    color: #FFF;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(270deg, transparent, #000000, transparent);
+    margin: 30px auto;
+    width: 80%;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
